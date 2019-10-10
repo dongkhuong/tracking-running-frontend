@@ -1,0 +1,47 @@
+import { StyleSheet }  from 'react-native'
+import metrics from '../../../constants/Metric'
+import colors from '../../../constants/Color'
+import fonts from '../../../constants/Font'
+export default StyleSheet.create({
+    // scrollContainer: {
+    //     flex: 1
+    // },
+    // resetPadding: {
+    //     paddingLeft: 0,
+    //     paddingRight: 0, 
+    //     paddingTop:0, 
+    //     paddingBottom: 0
+    // },
+    // marginCardItem:{
+    //     marginBottom: 1
+    // },
+    // imageBackground: {
+    //     width: '100%',
+    //     height:metrics.DEVICE_HEIGHT*0.25,
+    //     alignItems: 'center',
+    //     justifyContent: 'center'
+    // },
+    // titleBig: {
+    //     color: colors.white,
+    //     fontWeight: 'bold',
+    //     fontSize: fonts.fontCardLarge
+    // },
+    // titleSmall: {
+    //     color: colors.white,
+    //     fontSize: fonts.fontCardSmall
+    // }
+    inputContainer: {
+        height:20, 
+        borderBottomWidth: 1, 
+        marginBottom: 10,
+        marginTop: 5, 
+        paddingBottom: 5
+    },
+    customBirthDate: {
+        flex: 1, flexDirection: 'row', 
+        borderBottomWidth: 1, 
+        paddingBottom: 15, 
+        marginTop: 10, 
+        borderBottomColor: colors.darkGray
+    }
+})
