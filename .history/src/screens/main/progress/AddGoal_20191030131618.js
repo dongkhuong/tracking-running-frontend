@@ -1,0 +1,21 @@
+import React, { Component } from 'react'
+import { View, Text } from 'react-native'
+import Goal from './section-component/Goal'
+import { Left } from 'native-base'
+import styles from './Styles'
+import colors from '../../../constants/Color'
+class AddGoal extends Component {
+    render() {
+        return (
+            <View style={styles.addGoalContainer}>
+                <View style={{flex: 1, borderBottomWidth:1, borderColor: colors.darkGray, alignItems: 'center'}}>
+                    <Goal radius={70} borderWidth={8}/>
+                </View>
+                <View style={{flex: 1}}>
+                    <Left><Text>GOAL DETAILS</Text></Left>
+                </View>
+            </View>
+        );
+    }
+}
+export default AddGoal
