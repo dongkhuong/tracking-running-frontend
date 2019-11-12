@@ -1,7 +1,0 @@
-import React from 'react'
-import { createAppContainer } from 'react-navigation'
-import Newsfeed_Navigator from '../main/newsfeed/Newsfeed_Navigator'
-import Progress_Navigator from '../main/progress/Progress_Navigator'
-import Activity_Navigator from '../main/activity/Activity_Navigator'
-import Training_Navigator from '../main/training/Training_Navigator'
-import Profile_Navigator from '../main/profile/Profile_Navigator'
