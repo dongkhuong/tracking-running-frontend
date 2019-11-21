@@ -4,6 +4,7 @@ export default {
     backgroundInput: 'rgba(255, 255, 255, 0.4)',
     black: '#000',
     orange: '#FBAF01',
+    yellow: '#ffc800',
     darkBlue: '#0328A6',
     darkGray: '#838AA2',
     lightGray: '#F7F7F7',
@@ -14,5 +15,6 @@ export default {
     backgroundHeader: "#0AABFD",
     primaryColor: '#0AABFD',
     gray: '#C6C6C6',
-    red: 'red'
+    red: 'red',
+    green: '#006b19'
 }
