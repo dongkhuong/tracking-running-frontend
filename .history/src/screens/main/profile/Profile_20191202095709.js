@@ -53,7 +53,7 @@ class Profile extends Component {
             const cUser = await axios.get(Constant.rootAPI+'/users/profile',
             {headers: {'Authorization': `Bearer ${asyncStorage}`}})
             const data = cUser.data.data
-            this.setState({user: data}) 
+            this.setState({user: cUser}) 
         } catch(err) {
             throw new Error(err)
         }
@@ -76,8 +76,8 @@ class Profile extends Component {
                                             <TextPage marginTop={5} color={colors.darkGray} fontSize={11} fontWeight={'normal'}>Phone: {this.state.user.phone}</TextPage>
                                         </View>
                                     </View>    
-                                    ) : null
-                                }
+                                    )
+                                     : null}
                                     
                                     
                                 </Body>

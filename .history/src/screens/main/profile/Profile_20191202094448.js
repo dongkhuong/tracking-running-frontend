@@ -3,9 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native"
 import { Card, Container, Content, CardItem, Thumbnail, Body, Left, Icon } from 'native-base'
 import TextPage from "../../../components/TextPage"
 import colors from '../../../constants/Color'
-import AsyncStorage from "@react-native-community/async-storage"
-import axios from 'axios'
-import { Constant } from '../../../../common'
+import AsyncStorage from "@react-native-community/async-storage";
 class Profile extends Component {
     constructor(props) {
         super(props)
@@ -48,15 +46,13 @@ class Profile extends Component {
     //     ]
     // }
     async componentDidMount() {
-        try{
-            const asyncStorage = await AsyncStorage.getItem("token")
-            const cUser = await axios.get(Constant.rootAPI+'/users/profile',
-            {headers: {'Authorization': `Bearer ${asyncStorage}`}})
-            const data = cUser.data.data
-            this.setState({user: data}) 
-        } catch(err) {
-            throw new Error(err)
-        }
+        await AsyncStorage.getItem('currentUser').then(
+            (item) => {
+                const currentUser = JSON.parse(item)
+                this.setState({user: currentUser})
+            }
+        )
+        console.log(this.state.user)
     }
     render() {
         // const { navigation } = this.props
@@ -69,15 +65,15 @@ class Profile extends Component {
                                 <Body style={{alignItems: 'center'}}>
                                 {this.state.user != null ? 
                                     (
-                                    <View style={{alignItems: 'center'}}>
-                                    <Thumbnail large source={{uri: this.state.user.avatar !=null ? this.state.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png" }} />
+                                    <View>
+                                    <Thumbnail large source={{uri: "https://images.pexels.com/photos/2948260/pexels-photo-2948260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}} />
                                         <View>
                                             <TextPage marginTop={10} color={colors.black} fontSize={15} fontWeight={'bold'}>{this.state.user.firstname + " " + this.state.user.lastname}</TextPage>
                                             <TextPage marginTop={5} color={colors.darkGray} fontSize={11} fontWeight={'normal'}>Phone: {this.state.user.phone}</TextPage>
                                         </View>
                                     </View>    
-                                    ) : null
-                                }
+                                    )
+                                     : null}
                                     
                                     
                                 </Body>

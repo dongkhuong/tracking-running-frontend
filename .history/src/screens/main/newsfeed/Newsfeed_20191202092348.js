@@ -163,7 +163,7 @@ class NewsFeed extends Component {
                               <CardItem style={{paddingBottom: 0}}>
                                 <Left>
                                 {/* source={require('../../../assets/images/backgroundImage.jpg')} */}
-                                  <Thumbnail  style={{marginRight: 10}} source={{uri : item.user.avatar != null ? item.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png" }}/>
+                                  <Thumbnail  style={{marginRight: 10}} source={{uri : item.user.avatar != null ? item.user.avatar : "https://images.pexels.com/photos/2948260/pexels-photo-2948260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }}/>
                                   <Body>
                                     <Text style={{color: colors.black, fontWeight: 'bold'}}>{item.user.firstname + ' '+ item.user.lastname}</Text>
                                     <Text style={{color: colors.darkGray}}>{this.getFormatTime(item.created_at)}</Text>

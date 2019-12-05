@@ -3,9 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native"
 import { Card, Container, Content, CardItem, Thumbnail, Body, Left, Icon } from 'native-base'
 import TextPage from "../../../components/TextPage"
 import colors from '../../../constants/Color'
-import AsyncStorage from "@react-native-community/async-storage"
-import axios from 'axios'
-import { Constant } from '../../../../common'
+import AsyncStorage from "@react-native-community/async-storage";
 class Profile extends Component {
     constructor(props) {
         super(props)
@@ -48,15 +46,13 @@ class Profile extends Component {
     //     ]
     // }
     async componentDidMount() {
-        try{
-            const asyncStorage = await AsyncStorage.getItem("token")
-            const cUser = await axios.get(Constant.rootAPI+'/users/profile',
-            {headers: {'Authorization': `Bearer ${asyncStorage}`}})
-            const data = cUser.data.data
-            this.setState({user: data}) 
-        } catch(err) {
-            throw new Error(err)
-        }
+        await AsyncStorage.getItem('currentUser').then(
+            (item) => {
+                const currentUser = JSON.parse(item)
+                this.setState({user: currentUser})
+            }
+        )
+        console.log(this.state.user)
     }
     render() {
         // const { navigation } = this.props
@@ -76,8 +72,8 @@ class Profile extends Component {
                                             <TextPage marginTop={5} color={colors.darkGray} fontSize={11} fontWeight={'normal'}>Phone: {this.state.user.phone}</TextPage>
                                         </View>
                                     </View>    
-                                    ) : null
-                                }
+                                    )
+                                     : null}
                                     
                                     
                                 </Body>

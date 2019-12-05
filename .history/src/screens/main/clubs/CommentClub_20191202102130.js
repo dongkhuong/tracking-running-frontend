@@ -149,7 +149,7 @@ class CommentClub extends Component {
                             {cancelable: false}
                         )}>
                             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                <Thumbnail style={{marginRight: 30}} source={{uri: item.user.avatar != null ? item.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png" }} small/>
+                                <Thumbnail style={{marginRight: 30}} source={{uri: "https://facebook.github.io/react-native/docs/assets/favicon.png"}} small/>
                                 <View>
                                     <Text style={{color: colors.darkGray, fontSize: 12, marginBottom: 5}}>{item.user.firstname + ' ' + item.user.lastname} . {this.getFormatDay(item.created_at)}</Text>
                                     <View style={{width: '90%'}}><Text>{item.content}</Text>

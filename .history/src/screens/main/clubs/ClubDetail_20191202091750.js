@@ -286,7 +286,7 @@ class ClubDetail extends Component {
                                 titleStyle={{fontSize: 15}}
                                 title={item.user.firstname + ' ' + item.user.lastname}
                                 subtitle={this.getFormatTime(item.created_at)}
-                                left={(props) => <Avatar.Image size={30} source={{uri: item.user.avatar !=null ? item.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png"}} />}
+                                left={(props) => <Avatar.Image size={30} source={{uri: item.user.avatar}} />}
                                 right={
                                 (props) => (<TouchableOpacity onPress={() => 
                                                 Alert.alert(

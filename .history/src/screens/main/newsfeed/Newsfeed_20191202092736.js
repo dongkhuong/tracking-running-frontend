@@ -163,7 +163,7 @@ class NewsFeed extends Component {
                               <CardItem style={{paddingBottom: 0}}>
                                 <Left>
                                 {/* source={require('../../../assets/images/backgroundImage.jpg')} */}
-                                  <Thumbnail  style={{marginRight: 10}} source={{uri : item.user.avatar != null ? item.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png" }}/>
+                                  <Thumbnail  style={{marginRight: 10}} source={{uri : item.user.avatar != null ? item.user.avatar : "https://cdn2.vectorstock.com/i/1000x1000/18/71/running-marathon-logo-or-label-runner-with-red-vector-15001871.jpg" }}/>
                                   <Body>
                                     <Text style={{color: colors.black, fontWeight: 'bold'}}>{item.user.firstname + ' '+ item.user.lastname}</Text>
                                     <Text style={{color: colors.darkGray}}>{this.getFormatTime(item.created_at)}</Text>

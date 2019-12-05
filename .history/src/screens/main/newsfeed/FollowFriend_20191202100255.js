@@ -45,7 +45,7 @@ class FollowFriend extends Component {
                             {this.state.friends.map((item) => (
                                 <CardItem key={item.id} style={this.state.currentUserId == item.id ? {backgroundColor: colors.lightGray}: {backgroundColor: 'transparent'}}>
                                     <Left>
-                                        <Thumbnail small source={{uri: item.avatar!=null ? item.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png"}}/>
+                                        <Thumbnail small source={{uri: item.avatar!=null ? item.avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUc6OePV2g4FYscVdNItC-jItPv_3XLTMBTybAiYzy-f2M6u0mGQ&s"}}/>
                                         <Body>
                                             <TextPage color={colors.black} fontSize={12} fontWeight={'normal'}>{item.firstname + ' ' + item.lastname}</TextPage>
                                         </Body>

@@ -50,10 +50,10 @@ class Profile extends Component {
     async componentDidMount() {
         try{
             const asyncStorage = await AsyncStorage.getItem("token")
-            const cUser = await axios.get(Constant.rootAPI+'/users/profile',
+            const cUser = await axios.get(Constant.rootAPI+'/activities/'+id,
             {headers: {'Authorization': `Bearer ${asyncStorage}`}})
-            const data = cUser.data.data
-            this.setState({user: data}) 
+            const data = activity.data.data
+            this.setState({data:data}) 
         } catch(err) {
             throw new Error(err)
         }
@@ -76,8 +76,8 @@ class Profile extends Component {
                                             <TextPage marginTop={5} color={colors.darkGray} fontSize={11} fontWeight={'normal'}>Phone: {this.state.user.phone}</TextPage>
                                         </View>
                                     </View>    
-                                    ) : null
-                                }
+                                    )
+                                     : null}
                                     
                                     
                                 </Body>

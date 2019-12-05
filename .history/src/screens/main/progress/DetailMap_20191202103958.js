@@ -57,7 +57,7 @@ class DetailMap extends Component {
                             <CardItem>
                                 <View style={{flexDirection: 'row'}}>
                                     <Left>
-                                        <Image source={require('../../../assets/images/icons/speedometer.png')} style={{marginRight:20, width: 30, height: 30}} />
+                                        <Image source={require('../../../assets/images/icons/sand-clock-ready-to-start.png')} style={{marginRight:20, width: 30, height: 30}} />
                                         <View>
                                             <Text style={{color:colors.darkGray}}>Avg. Pace</Text>
                                         </View>
@@ -117,7 +117,7 @@ class DetailMap extends Component {
                             <CardItem>
                                 <View style={{flexDirection: 'row'}}>
                                     <Left>
-                                        <Image source={require('../../../assets/images/icons/appointment.png')} style={{marginRight:20, width: 30, height: 30}} />
+                                        <Image source={require('../../../assets/images/icons/appointment.png')} style={{color: colors.primaryColor, marginRight:20, width: 30, height: 30}} />
                                         <View>
                                             <Text style={{color:colors.darkGray}}>Date</Text>
                                         </View>

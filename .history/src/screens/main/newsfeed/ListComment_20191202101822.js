@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { View, Text, ScrollView, TouchableOpacity, ToastAndroid, RefreshControl, Alert } from "react-native"
-import { Card, CardItem, Thumbnail} from 'native-base'
+import { Left, Body, Right, Card, CardItem, Thumbnail} from 'native-base'
 import { Input } from 'react-native-elements'
 import Icon from 'react-native-ionicons'
 import colors from '../../../constants/Color'
@@ -10,7 +10,7 @@ import axios from 'axios'
 import { Constant } from '../../../../common'
 import AsyncStorage from '@react-native-community/async-storage'
 import moment from 'moment'
-class CommentClub extends Component {
+class ListComment extends Component {
     constructor(props) {
         super(props)
         this.state={
@@ -50,7 +50,7 @@ class CommentClub extends Component {
           },
           {headers: {'Authorization': `Bearer ${asyncStorage}`}})
           if(countLikes.data.business_code == 1){
-            this.setState({userLikes: countLikes.data.userLikes, sumOfLikes: countLikes.data.sumOfLikes})
+            await this.setState({userLikes: countLikes.data.userLikes, sumOfLikes: countLikes.data.sumOfLikes})
             console.log(this.state.userLikes)
         } else if (countLikes.data.business_code == 0) {
             ToastAndroid.show(countLikes.data.message,ToastAndroid.SHORT)
@@ -100,7 +100,6 @@ class CommentClub extends Component {
         this.fetchData().then(() => this.setState({refreshing: false}))
     }
     async componentDidMount(){
-        // console.log(this.props.navigation.getParam('comment_id'))
         await this.fetchData()
         await this.countLikes()
         await this._onRefresh()
@@ -118,15 +117,17 @@ class CommentClub extends Component {
                 <Card>
                     <CardItem style={{borderBottomWidth: 1, borderBottomColor: colors.gray}}>
                         <View style={{width: metrics.DEVICE_WIDTH*0.9}}>
-                            <TouchableOpacity style={{width: '100%', flexDirection: 'row', alignItems: 'center'}} onPress={() => this.props.navigation.navigate('FollowPost',{userLikes: this.state.userLikes})}>
+                            <TouchableOpacity style={{width: '100%', flexDirection: 'row', alignItems: 'center'}} onPress={() => this.props.navigation.navigate('FollowFriend',{userLikes: this.state.userLikes})}>
                                 <Thumbnail style={{marginRight:20, width: 20, height: 20}} square source={require('../../../assets/images/icons/like.png')}/>
                                 <Text style={{fontSize: 20, marginRight:20, fontSize: 15}}>{this.state.sumOfLikes}</Text>
                                 <View style={{flexDirection: 'row'}}>
-                                    {this.state.userLikes.length > 0 ? this.state.userLikes.map((item, index) => (
-                                        <Thumbnail key={index} style={{marginRight:5, width: 25, height: 25}} source={{uri: item.user.avatar != null ? item.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png"}}/>
+                                    {this.state.userLikes.length > 0 ? this.state.userLikes.map(item => (
+                                        <Thumbnail  style={{marginRight:5, width: 25, height: 25}} source={{uri: item.user.avatar != null ? item.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png"}}/>
                                     )) 
                                     : null 
                                     }
+                                    
+                                    <Thumbnail  style={{marginRight:5, width: 25, height: 25}} source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3zROcvE9mwFbmqhgz2ed34AjqkR_mENY9SAgeGbx9I4cH7S0LPg&s"}}/>
                                 </View>
                                 <View style={styles.viewLikeButton}>
                                     <Icon name="arrow-forward" color={colors.black} size={20}/>
@@ -149,7 +150,7 @@ class CommentClub extends Component {
                             {cancelable: false}
                         )}>
                             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                <Thumbnail style={{marginRight: 30}} source={{uri: item.user.avatar != null ? item.user.avatar : "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png" }} small/>
+                                <Thumbnail style={{marginRight: 30}} source={{uri: "https://facebook.github.io/react-native/docs/assets/favicon.png"}} small/>
                                 <View>
                                     <Text style={{color: colors.darkGray, fontSize: 12, marginBottom: 5}}>{item.user.firstname + ' ' + item.user.lastname} . {this.getFormatDay(item.created_at)}</Text>
                                     <View style={{width: '90%'}}><Text>{item.content}</Text>
@@ -171,7 +172,7 @@ class CommentClub extends Component {
                         <Input
                         multiline = {true}
                         textAlignVertical="top"
-                        inputContainerStyle={{paddingLeft:10, borderBottomWidth: 0}}
+                        inputContainerStyle={{paddingLeft:10, paddingRight: metrics.DEVICE_WIDTH*0.2, borderBottomWidth: 0}}
                         placeholder={"Add a comment, @ to mention, ..."}
                         placeholderTextColor={colors.lightGrays}
                         containerStyle={{width: metrics.DEVICE_WIDTH}}
@@ -193,4 +194,4 @@ class CommentClub extends Component {
         );
     }
 }
-export default CommentClub
+export default ListComment

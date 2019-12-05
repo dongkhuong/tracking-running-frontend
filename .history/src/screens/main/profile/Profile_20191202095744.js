@@ -76,8 +76,8 @@ class Profile extends Component {
                                             <TextPage marginTop={5} color={colors.darkGray} fontSize={11} fontWeight={'normal'}>Phone: {this.state.user.phone}</TextPage>
                                         </View>
                                     </View>    
-                                    ) : null
-                                }
+                                    )
+                                     : null}
                                     
                                     
                                 </Body>
